@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "995295650434",
+    "project_id": "ministry-of-health-2dd64",
+    "storage_bucket": "ministry-of-health-2dd64.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:995295650434:android:a81e7992d92e6ca3328a9b",
+        "android_client_info": {
+          "package_name": "com.example.ministry_health"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC22WYczMYLYKIkTdMgqJH-33eiY1nNyN0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
