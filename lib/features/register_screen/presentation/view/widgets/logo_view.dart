@@ -7,7 +7,7 @@ class LogoView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-                  height: 150.h,
+                  height: 170.h,
                   width: 200..w,
             decoration:const BoxDecoration(
               
