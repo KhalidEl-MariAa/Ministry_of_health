@@ -8,6 +8,7 @@ import 'package:ministry_health/features/home_screen/presentation/view/home_scre
 import 'package:ministry_health/features/register_screen/presentation/view/register_screen.dart';
 import 'package:ministry_health/features/register_screen/presentation/view_model/cubit/registration_cubit.dart';
 import 'package:ministry_health/features/sign_in_screen/presentation/view/sign_in_screen.dart';
+import 'package:ministry_health/features/sign_in_screen/presentation/view_model/cubit/sign_in_cubit.dart';
 import 'package:ministry_health/generated/l10n.dart';
 import 'firebase_options.dart';
 
@@ -40,7 +41,10 @@ class MyApp extends StatelessWidget {
                 create: (context) => RegistrationCubit(),
                 child: const RegisterScreen(),
               ),
-          ScreenNames.loginScreen: (context) => const SignInScreen(),
+          ScreenNames.loginScreen: (context) => BlocProvider(
+                create: (context) => SignInCubit(),
+                child: const SignInScreen(),
+              ),
           ScreenNames.homeScreen: (context) => const HomeScreen(),
         },
         title: 'Flutter Demo',

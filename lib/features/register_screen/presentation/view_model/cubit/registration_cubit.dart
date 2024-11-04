@@ -19,6 +19,7 @@ class RegistrationCubit extends Cubit<RegistrationState> {
     try{
       await FirebaseAuth.instance.createUserWithEmailAndPassword(email: emailcont.text,
       password: passcont.text,);
+      emit(RegistrationSucess());
       
     }
     on FirebaseAuthException catch(e){

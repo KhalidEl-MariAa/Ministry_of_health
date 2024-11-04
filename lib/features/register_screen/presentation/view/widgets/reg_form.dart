@@ -21,32 +21,27 @@ class RegForm extends StatelessWidget {
       key: keey,
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 45.h),
-        child: BlocListener<RegistrationCubit, RegistrationState>(
+        child: BlocConsumer<RegistrationCubit, RegistrationState>(
           listener: (context, state) {
             
             if(state is RegistrationLoading){
-              showDialog(context: context, builder: (context) => Dialog(
-                 backgroundColor: AppColors.white,
-                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    LogoView(),
-                    const VerticalSizedBox(height: 10),
-                    const CircularProgressIndicator(color: Colors.blue,),
-                    const VerticalSizedBox(height: 10),
-                    Text("جاري انشاء الحساب...",style: AppStyles.bold25.copyWith(fontSize: 15.sp),),
-                    const VerticalSizedBox(height: 10),
+              registrationLoadingDialog(context);
+            }
+            if (state is RegistrationError){
+              // print("kereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
 
+              Navigator.pop(context);
+              errorDialog(context, state);
+            }
+            if (state is RegistrationSucess){
+              // print("Hereeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+            Navigator.pop(context);
+            Navigator.pushNamed(context, ScreenNames.homeScreen);
 
-
-                  ],
-                 )
-
-              ),);
             }
           },
-          child: Column(
+
+          builder:(context, state) =>  Column(
             children: [
               Align(
                   alignment: Alignment.bottomRight,
@@ -103,8 +98,9 @@ class RegForm extends StatelessWidget {
                         ElevatedButton.styleFrom(backgroundColor: Colors.blue),
                     onPressed: () async{
                       if (keey.currentState!.validate()) {
+                        
                        await BlocProvider.of<RegistrationCubit>(context).registration();
-                        Navigator.pushNamed(context, ScreenNames.homeScreen);
+                      
                       }
                     },
                     child: Text(
@@ -141,5 +137,53 @@ class RegForm extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void registrationLoadingDialog(BuildContext context) {
+    showDialog(context: context, builder: (context) => Dialog(
+       backgroundColor: AppColors.white,
+       child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          LogoView(),
+          const VerticalSizedBox(height: 10),
+          const CircularProgressIndicator(color: Colors.blue,),
+          const VerticalSizedBox(height: 10),
+          Text("جاري انشاء الحساب...",style: AppStyles.bold25.copyWith(fontSize: 15.sp),),
+          const VerticalSizedBox(height: 10),
+    
+    
+    
+        ],
+       )
+    
+    ),);
+  }
+
+  void errorDialog(BuildContext context, RegistrationError state) {
+    showDialog(context: context, builder: (context) => Dialog(
+       backgroundColor: AppColors.white,
+       child: Padding(
+         padding: EdgeInsets.symmetric(horizontal: 10.w),
+         child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // LogoView(),
+            const VerticalSizedBox(height: 10),
+            Text("حدث خطأ",style: AppStyles.bold25.copyWith(fontSize: 20.sp),),
+            
+            const VerticalSizedBox(height: 10),
+            Text(state.errorMsg,style: AppStyles.bold25.copyWith(fontSize: 10.sp),),
+            const VerticalSizedBox(height: 10),
+         
+         
+         
+          ],
+         ),
+       )
+    
+    ),);
   }
 }
