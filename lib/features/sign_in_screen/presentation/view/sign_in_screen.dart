@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ministry_health/core/colors/colors.dart';
 import 'package:ministry_health/features/register_screen/presentation/view/widgets/logo_view.dart';
-import 'package:ministry_health/features/register_screen/presentation/view/widgets/reg_form.dart';
+import 'package:ministry_health/features/sign_in_screen/presentation/view/widgets/sign_in_form.dart';
 
-class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,13 +15,9 @@ class RegisterScreen extends StatelessWidget {
           SliverFillRemaining(
             hasScrollBody: false,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 LogoView(),
-                // VerticalSizedBox(height: 25),
-                RegForm(),
-                //  VerticalSizedBox(height: 15),
-                
+                SignInForm()
               ],
             ),
           )

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ministry_health/core/colors/colors.dart';
 import 'package:ministry_health/core/navigation/screen_names.dart';
 import 'package:ministry_health/core/styles/app_styles.dart';
@@ -8,23 +7,20 @@ import 'package:ministry_health/core/usable/sized_boxes.dart';
 import 'package:ministry_health/features/register_screen/presentation/view/widgets/custom_text_field.dart';
 import 'package:ministry_health/features/register_screen/presentation/view/widgets/pass_textfield.dart';
 
-class RegForm extends StatelessWidget {
-  const RegForm({super.key});
+class SignInForm extends StatelessWidget {
+  const SignInForm({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return  Padding(
       padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 45.h),
       child: Column(
         children: [
           Align(
                     alignment: Alignment.bottomRight,
-                    child: Text("انشاء حساب",style:AppStyles.bold25 )),
+                    child: Text("تسجيل الدخول",style:AppStyles.bold25 )),
                     const VerticalSizedBox(height: 15),
-                     const Customtextfield(
-                      prefixIcon: FontAwesomeIcons.userDoctor,
-                      hintText: "اسم الطبيب", borderColor:Colors.blue, obscure: false),
-                      const VerticalSizedBox(height: 10),
+                     
                       
                     const Customtextfield(
                       prefixIcon: Icons.email,
@@ -32,8 +28,7 @@ class RegForm extends StatelessWidget {
                               const VerticalSizedBox(height: 10),
                      const PassTextfield(hintText: "كلمة المرور"),
                        
-                       const VerticalSizedBox(height: 10),
-                      const PassTextfield(hintText: "تأكيد كلمة المرور"),
+                       
                    const VerticalSizedBox(height: 15),
                       SizedBox(
                         width: 0.8.sw,
@@ -43,17 +38,17 @@ class RegForm extends StatelessWidget {
                           ),
                           onPressed: () {
                           
-                        }, child: Text("تسجيل الحساب",style: AppStyles.bold25.copyWith(fontSize: 15.sp,color: AppColors.white),) ),
+                        }, child: Text("تسجيل الدخول",style: AppStyles.bold25.copyWith(fontSize: 15.sp,color: AppColors.white),) ),
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          Text("لديك حساب بالفعل؟..",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.w400,fontSize: 12.sp),),
+                          Text("ليس لديك حساب..",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.w400,fontSize: 12.sp),),
                           GestureDetector(
                             onTap:() {
-                              Navigator.pushNamed(context, ScreenNames.loginScreen);
+                              Navigator.pushNamed(context, ScreenNames.regScreen);
                             },
-                            child: Text("تسجيل الدخول",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.w400,fontSize: 12.sp),))
+                            child: Text("انشاء حساب",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.w400,fontSize: 12.sp),))
                         ],
                       )
         ],
