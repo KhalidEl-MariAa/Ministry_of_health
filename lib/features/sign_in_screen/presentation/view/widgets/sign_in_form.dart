@@ -12,47 +12,51 @@ class SignInForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    GlobalKey<FormState> keey = GlobalKey();
     return  Padding(
       padding: EdgeInsets.symmetric(horizontal: 10.w,vertical: 45.h),
-      child: Column(
-        children: [
-          Align(
-                    alignment: Alignment.bottomRight,
-                    child: Text("تسجيل الدخول",style:AppStyles.bold25 )),
-                    const VerticalSizedBox(height: 15),
-                     
-                      
-                    const Customtextfield(
-                      prefixIcon: Icons.email,
-                      hintText: "البريد الالكتروني", borderColor:Colors.blue, obscure: false),
-                              const VerticalSizedBox(height: 10),
-                     const PassTextfield(hintText: "كلمة المرور"),
+      child: Form(
+        key: keey,
+        child: Column(
+          children: [
+            Align(
+                      alignment: Alignment.bottomRight,
+                      child: Text("تسجيل الدخول",style:AppStyles.bold25 )),
+                      const VerticalSizedBox(height: 15),
                        
-                       
-                   const VerticalSizedBox(height: 15),
-                      SizedBox(
-                        width: 0.8.sw,
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.blue
-                          ),
-                          onPressed: () {
-                          Navigator.pushNamed(context, ScreenNames.homeScreen);
-                          
-                        }, child: Text("تسجيل الدخول",style: AppStyles.bold25.copyWith(fontSize: 15.sp,color: AppColors.white),) ),
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text("ليس لديك حساب..",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.w400,fontSize: 12.sp),),
-                          GestureDetector(
-                            onTap:() {
-                              Navigator.pushNamed(context, ScreenNames.regScreen);
-                            },
-                            child: Text("انشاء حساب",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.w400,fontSize: 12.sp),))
-                        ],
-                      )
-        ],
+                        
+                      const Customtextfield(
+                        prefixIcon: Icons.email,
+                        hintText: "البريد الالكتروني", borderColor:Colors.blue, obscure: false),
+                                const VerticalSizedBox(height: 10),
+                       const PassTextfield(hintText: "كلمة المرور"),
+                         
+                         
+                     const VerticalSizedBox(height: 15),
+                        SizedBox(
+                          width: 0.8.sw,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue
+                            ),
+                            onPressed: () {
+                            Navigator.pushNamed(context, ScreenNames.homeScreen);
+                            
+                          }, child: Text("تسجيل الدخول",style: AppStyles.bold25.copyWith(fontSize: 15.sp,color: AppColors.white),) ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text("ليس لديك حساب..",style: TextStyle(color: AppColors.black,fontWeight: FontWeight.w400,fontSize: 12.sp),),
+                            GestureDetector(
+                              onTap:() {
+                                Navigator.pushNamed(context, ScreenNames.regScreen);
+                              },
+                              child: Text("انشاء حساب",style: TextStyle(color: Colors.blue,fontWeight: FontWeight.w400,fontSize: 12.sp),))
+                          ],
+                        )
+          ],
+        ),
       ),
     );
   }
