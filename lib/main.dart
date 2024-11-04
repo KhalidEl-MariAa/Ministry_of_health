@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ministry_health/core/navigation/screen_names.dart';
+import 'package:ministry_health/features/home_screen/presentation/view/home_screen.dart';
 import 'package:ministry_health/features/register_screen/presentation/view/register_screen.dart';
 import 'package:ministry_health/features/sign_in_screen/presentation/view/sign_in_screen.dart';
 import 'package:ministry_health/generated/l10n.dart';
@@ -34,7 +35,8 @@ class MyApp extends StatelessWidget {
             supportedLocales: S.delegate.supportedLocales,
         routes: {
           ScreenNames.regScreen:(context) => const RegisterScreen(),
-          ScreenNames.loginScreen:(context)=> const SignInScreen()
+          ScreenNames.loginScreen:(context)=> const SignInScreen(),
+          ScreenNames.homeScreen:(context)=> const HomeScreen(),
         },
         title: 'Flutter Demo',
         theme: ThemeData(

@@ -42,7 +42,7 @@ class RegForm extends StatelessWidget {
                             backgroundColor: Colors.blue
                           ),
                           onPressed: () {
-                          
+                          Navigator.pushNamed(context, ScreenNames.homeScreen);
                         }, child: Text("تسجيل الحساب",style: AppStyles.bold25.copyWith(fontSize: 15.sp,color: AppColors.white),) ),
                       ),
                       Row(

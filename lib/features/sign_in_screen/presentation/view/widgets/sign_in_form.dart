@@ -37,6 +37,7 @@ class SignInForm extends StatelessWidget {
                             backgroundColor: Colors.blue
                           ),
                           onPressed: () {
+                          Navigator.pushNamed(context, ScreenNames.homeScreen);
                           
                         }, child: Text("تسجيل الدخول",style: AppStyles.bold25.copyWith(fontSize: 15.sp,color: AppColors.white),) ),
                       ),
