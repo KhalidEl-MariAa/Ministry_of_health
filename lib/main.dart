@@ -4,6 +4,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ministry_health/core/navigation/screen_names.dart';
+import 'package:ministry_health/features/add_hala_screen/presentation/view/add_hala_screen.dart';
+import 'package:ministry_health/features/add_hala_screen/presentation/view_model/cubit/add_hala_cubit.dart';
 import 'package:ministry_health/features/home_screen/presentation/view/home_screen.dart';
 import 'package:ministry_health/features/register_screen/presentation/view/register_screen.dart';
 import 'package:ministry_health/features/register_screen/presentation/view_model/cubit/registration_cubit.dart';
@@ -46,6 +48,10 @@ class MyApp extends StatelessWidget {
                 child: const SignInScreen(),
               ),
           ScreenNames.homeScreen: (context) => const HomeScreen(),
+          ScreenNames.addHalaScreen: (context) => BlocProvider(
+                create: (context) => AddHalaCubit(),
+                child: const AddHalaScreen(),
+              )
         },
         title: 'Flutter Demo',
         theme: ThemeData(
